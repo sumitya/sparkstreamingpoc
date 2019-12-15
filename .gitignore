@@ -1,0 +1,9 @@
+target/
+.idea/
+spark-warehouse/
+metastore_db/
+src/main/resources/inputfiles/
+src/main/java/
+src/test/java/
+derby.log
+sparkstreamingpoc.iml
