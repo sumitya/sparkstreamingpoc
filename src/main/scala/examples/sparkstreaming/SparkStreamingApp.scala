@@ -1,13 +1,23 @@
 package examples.sparkstreaming
 
+import examples.sparkstreaming.parser.ParseLogLine
 import examples.sparkstreaming.utils.{Contexts, GetAllProperties}
 
 object SparkStreamingApp extends App{
 
   val steamingContext = Contexts.SSC
 
-  //steamingContext.socketTextStream("localhost",7777).map{_.toUpperCase}.print()
+  val streamRDD = steamingContext.socketTextStream("localhost",7777)
 
+  val parseLogLine = new ParseLogLine
+
+  val res = streamRDD.map{parseLogLine.parse}.map( logrecord => (logrecord.ipAddress,logrecord.timestamp))
+
+  val countsOfUniqueIps = res.map(rec => (rec._1,1)).reduceByKey( _+_ )
+
+  countsOfUniqueIps.print()
+
+  // do the calculations like 1. particular ip address started surfing the website from time1 to time2.
 
 
   /*
@@ -24,11 +34,9 @@ object SparkStreamingApp extends App{
   //This is used for local development only.
   val source_dir = GetAllProperties.readPropertyFile getOrElse("SOURCE_DIR" ,"#") replace("<USER_NAME>", userName)
 
-  val inputFile = steamingContext.textFileStream(source_dir)
+  //val inputFile = steamingContext.textFileStream(source_dir)
 
-  inputFile.foreachRDD(_.count())
-
-
+  //inputFile.foreachRDD(_.count())
 
   steamingContext.start()
 
