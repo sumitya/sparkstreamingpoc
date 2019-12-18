@@ -2,7 +2,7 @@ package examples.sparkstreaming.parser
 
 case class LogRecord( ipAddress: String, timestamp:String )
 
-class ParseLogLine {
+class ParseLogLine extends Serializable {
 
   def parse(logLine: String): LogRecord = {
 

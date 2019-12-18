@@ -5,8 +5,8 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 object Contexts {
 
-  val conf:SparkConf = new SparkConf().setMaster("local[2]").setAppName("SparkStreamingPoc")
-  val SSC = new StreamingContext(conf,Seconds(15))
+  val conf:SparkConf = new SparkConf().setMaster("local[3]").setAppName("SparkStreamingPoc")
+  val SSC = new StreamingContext(conf,Seconds(10))
 
 }
 
