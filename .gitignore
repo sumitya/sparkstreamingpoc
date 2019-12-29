@@ -5,6 +5,7 @@ metastore_db/
 src/main/resources/inputfiles/
 src/main/resources/sample_apache_logs/
 src/main/resources/checkpoint/
+src/main/resources/activity_data/
 src/main/java/
 src/test/java/
 src/test/scala/

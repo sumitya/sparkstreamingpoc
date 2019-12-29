@@ -39,6 +39,20 @@
       <version>2.4.0</version>
     </dependency>
 
+   <!-- &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.spark/spark-core &ndash;&gt;
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.12</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+-->
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.12</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
